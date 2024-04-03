@@ -4,6 +4,9 @@ cd ./medusa
 
 docker-compose up
 
+login, password
+test@test.com test
+
 
 
 
