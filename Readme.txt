@@ -1,4 +1,7 @@
-docker compose up --build -d
+git clone https://github.com/balanbiz/medusa.git
 
-npx create-medusa-app@latest --with-nextjs-starter --db-url postgres://medusa_test:medusa_test@localhost:5432/medusa_db
+docker-compose up
+
+
+
 
