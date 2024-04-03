@@ -9,7 +9,7 @@ type IProductRandomBtnProps = {
   }[]
 }
 
-export default async function ProductRandomBtn({
+export default function ProductRandomBtn({
   fullProducts,
 }: IProductRandomBtnProps) {
   let countryCode = useParams().countryCode as string
