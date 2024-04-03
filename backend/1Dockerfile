@@ -1,0 +1,10 @@
+FROM node:latest
+WORKDIR /app/backend
+COPY package*.json .
+RUN npm install
+COPY builder.sh .
+COPY . .
+RUN chmod +x ./builder.sh
+# ENTRYPOINT ["./builder.sh"]
+# EXPOSE 9000
+# CMD [ "npm", "run", "dev" ]

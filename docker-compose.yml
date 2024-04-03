@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+    db:
+        image: postgres
+        volumes:
+            - postgres-db:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_DB=medusa_db
+            - POSTGRES_USER=medusa_test
+            - POSTGRES_PASSWORD=medusa_test
+        ports:
+            - 5432:5432
+volumes:
+    postgres-db:
+# version: "3.8"
+# services:
+#     backend:
+#         build:
+#             context: ./backend
+#             dockerfile: Dockerfile
+#         image: backend:test
+#         container_name: medusa-server
+#         depends_on:
+#             - postgres
+#         environment:
+#             DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres-db
+#             REDIS_URL: redis://cache:6379
+#             NODE_ENV: development
+#             JWT_SECRET: something
+#             COOKIE_SECRET: something
+#             NODE_OPTIONS: --openssl-legacy-provider
+#             PORT: 9000
+#         ports:
+#             - "7001:7001"
+#         command: >
+#             /bin/sh -c '
+#             echo "Executing migrations..." &&
+#             npx medusa migrations run &&
+#             echo "Creating test user..." &&
+#             npx medusa user -e test@test.com -p test &&
+#             echo "Starting server..." &&
+#             npm run dev'
+#     storefront:
+#         build:
+#             context: ./storefront
+#             dockerfile: Dockerfile
+#         image: storefront:test
+#         container_name: medusa-storefront
+#         depends_on:
+#             - backend
+#         ports:
+#             - "8000:8000"
+#     postgres:
+#         image: postgres:10.4
+#         ports:
+#             - "5432:5432"
+#         environment:
+#             POSTGRES_USER: postgres
+#             POSTGRES_PASSWORD: postgres
+#             POSTGRES_DB: postgres-db
+
